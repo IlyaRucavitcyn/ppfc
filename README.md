@@ -2,7 +2,7 @@
 
 [Original](http://www.sketchappsources.com/free-source/1531-payment-popup-form-sketch-freebie-resource.html) Design was borrowed here, say thx to [Vu Nguyen Thai](http://www.sketchappsources.com/contributor/nguyenvu)
 
-In order to make it accessible this repo contains export files as well as
+In order to make it accessible, this repo contains export files as well as
 originals. Feel free to use it as you want
 
 ![Payment Form](http://www.sketchappsources.com/resources/source-image/payment-popup-form-nguyenvu.jpg)
