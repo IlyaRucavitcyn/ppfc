@@ -1,0 +1,29 @@
+{
+  "name": "project",
+  "version": "1.0.0",
+  "description": "[Original](http://www.sketchappsources.com/free-source/1531-payment-popup-form-sketch-freebie-resource.html) Design was borrowed here, say thx to [Vu Nguyen Thai](http://www.sketchappsources.com/contributor/nguyenvu)",
+  "main": "data.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server -d --hot --inline"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shemerey/ppfc.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shemerey/ppfc/issues"
+  },
+  "homepage": "https://github.com/shemerey/ppfc#readme",
+  "devDependencies": {
+    "css-loader": "^0.23.1",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.13.1",
+    "webpack-dev-server": "^1.14.1",
+    "webpack-hot-middleware": "^2.12.2"
+  }
+}
