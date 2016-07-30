@@ -1,4 +1,7 @@
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var precss       = require('precss'),
+    autoprefixer = require('autoprefixer'),
+    spyImport = require('postcss-import');
+
 
 module.exports = {
     entry: ['./main.js'],
@@ -13,8 +16,13 @@ module.exports = {
     module: {
         loaders: [{
             test: /\.css$/,
-            loader: 'style!css'
+            loader: 'style-loader!css-loader!postcss-loader'
         }]
+    },
+    postcss: function (webpack) {
+        return [spyImport({
+            addDependencyTo: webpack
+        }),precss, autoprefixer];
     },
     devServer: {
         host: 'localhost',
