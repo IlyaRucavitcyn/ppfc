@@ -1,5 +1,6 @@
 var precss       = require('precss'),
-    autoprefixer = require('autoprefixer');
+    autoprefixer = require('autoprefixer'),
+    spyImport = require('postcss-import');
 
 
 module.exports = {
@@ -18,8 +19,10 @@ module.exports = {
             loader: 'style-loader!css-loader!postcss-loader'
         }]
     },
-    postcss: function () {
-        return [precss, autoprefixer];
+    postcss: function (webpack) {
+        return [spyImport({
+            addDependencyTo: webpack
+        }),precss, autoprefixer];
     },
     devServer: {
         host: 'localhost',

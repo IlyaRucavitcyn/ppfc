@@ -1,0 +1,9 @@
+@import "./colors.css";
+@import "./typo.css";
+
+p {
+    color: $blue;
+    background-color: $pink;
+    font-size: $size;
+    /*margin-top:100px;*/
+}
