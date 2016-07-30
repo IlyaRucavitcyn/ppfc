@@ -1,9 +1,21 @@
 @import "./colors.css";
 @import "./typo.css";
-
-p {
-    color: $blue;
-    background-color: $pink;
-    font-size: $size;
-    /*margin-top:100px;*/
+html {
+    height: 100%;
+}
+body {
+    background-color: $backgroundPageColor;
+    height: 100%;
+}
+.container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.main-form {
+    width: 938px;
+    height: 783px;
+    border-radius: 9px;
+    background-color: $backgroundFormColor;
 }
