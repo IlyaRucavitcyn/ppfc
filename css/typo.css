@@ -1,1 +1,28 @@
-$size: 40px;
+$mainFont:"Roboto";
+
+/*Base font size*/
+
+$font-18:18px;
+$font-20:20px;
+$font-24:24px;
+$font-48:48px;
+$font-60:60px;
+
+/*Base font weight*/
+$fontWeightBase: 100;
+$fontWeightButton: 700;
+
+/*Atomic classes for text positioning*/
+.centered-text{
+  text-align:center;
+}
+.left-text{
+  text-align:left;
+}
+.right-text{
+  text-align:right;
+}
+/*Margin redefinition*/
+.no-margin{
+  margin:0;
+}
