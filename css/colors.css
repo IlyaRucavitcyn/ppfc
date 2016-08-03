@@ -1,4 +1,17 @@
 $backgroundPageColor: #4a90e2;
 $backgroundFormColor: #ffffff;
 $headingColor: #0c2543;
+$borderColor:rgba(12,37,67,0.21);
 $formTextColor: #4a4a4a;
+$textAmountColor:#ffffff;
+$linkColor:#f6f6f6;
+$linkTextColor:#223954;
+
+
+/*Temporary colors*/
+$t1: rgba(209,17,65,0.1);
+$t2: rgba(16, 57, 24, 0.61);
+$t3: rgba(199, 197, 39, 0.42);
+$t4: rgba(40, 53, 170, 0.68);
+$t5: rgb(208, 102, 102);
+$t6: rgba(126, 235, 211, 0.86);

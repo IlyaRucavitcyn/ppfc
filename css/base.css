@@ -1,11 +1,18 @@
+/*TODO delete all temporary styles*/
+
 @import "./colors.css";
 @import "./typo.css";
+* {
+    box-sizing: border-box;
+}
 html {
     height: 100%;
 }
 body {
     background-color: $backgroundPageColor;
     height: 100%;
+    font: $fontWeightBase $font-18 "HelveticaNeue", $mainFont, sans-serif;
+    color: $formTextColor;
 }
 .container {
     height: 100%;
@@ -18,4 +25,182 @@ body {
     height: 783px;
     border-radius: 9px;
     background-color: $backgroundFormColor;
+    display: flex;
 }
+
+/*Total payment section*/
+
+.view-total-payment {
+    width: 376px;
+    display: flex;
+    flex-flow: column;
+    color: $textAmountColor;
+    background: url('../images/sidebarbg.png') no-repeat;
+}
+.view-total-payment__amount {
+    flex-grow: 1;
+    border-top-left-radius: 9px;
+    padding: 277px 116px 330px 117px;
+    /*Temporary styles*/
+}
+.view-total-payment__amount--summ {
+    margin: 25px 0;
+}
+.view-total-payment__cancel {
+    display: block;
+    height: 52px;
+    color: $textAmountColor;
+    background-color: $headingColor;
+    border: none;
+    border-bottom-left-radius: 9px;
+    /*Temporary styles*/
+}
+.view-total-payment__cancel--text {
+    font-weight: $fontWeightButton;
+    margin-left: 25px;
+}
+.view-total-payment__cancel--text::before {
+    content: "";
+    display: inline-block;
+    width: 20px;
+    height: 1em;
+    background: url('../images/arrow-left.svg') 50% 50% no-repeat;
+    background-size: 80%;
+    vertical-align: middle;
+    margin: 0 25px;
+}
+
+/*View controls section*/
+
+.view-controls {
+    flex-grow: 1;
+    display: flex;
+    flex-flow: column;
+    padding: 0px 40px;
+}
+.view-controls__title {
+    flex-grow: 1;
+    display: flex;
+    /*Temporary styles*/
+}
+.view-controls__title__info {
+    flex-basis: 50%;
+}
+.view-controls__title__info--heading {
+    margin: 15px 0;
+    font-weight: $fontWeightBase;
+    color: $headingColor;
+}
+.view-controls__title__info--subheading {
+    font-weight: $fontWeightBase;
+    margin-top: 10px;
+}
+.view-controls__title__logo {
+    flex-basis: 50%;
+}
+.view-controls__title__logo--image {
+    display: block;
+    margin: 93px 5px auto auto;
+    margin-top: 93px;
+    margin-left: auto;
+}
+.view-controls__form {
+    height: 420px;
+    border-bottom: 1px solid $borderColor;
+    /*Temporary styles*/
+    /*background-color: $t4;*/
+}
+.view-controls__form__item {
+    margin-bottom: 25px;
+}
+.view-controls__form--date {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.view-controls__form__item--label {
+    width: 100%;
+    display: block;
+    font-weight: $fontWeightBase;
+}
+.view-controls__form__item--input {
+    width: 100%;
+    height: 52px;
+    border-radius: 4px;
+    margin: 5px 0;
+    border: 1px solid $borderColor;
+}
+.view-controls__form__item__date--input {
+    width: 45%;
+}
+.view-controls__form--cvc {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.view-controls__form__item__cvc--input {
+    width: 45%;
+}
+.view-controls__form__item__cvc--text {
+    width: 45%;
+}
+.view-controls__form__item--submit {
+    display: block;
+    width: 84%;
+    height: 54px;
+    margin: 30px auto 0 auto;
+    border: none;
+    border-radius: 4px;
+    color: $textAmountColor;
+    background: $backgroundPageColor;
+    font-weight: $fontWeightButton;
+}
+.view-controls__readressing {
+    height: 200px;
+    /*Temporary styles*/
+    /*background-color: $t5;*/
+}
+.view-controls__readressing--text {
+    margin-top: 30px;
+}
+.view-controls__readressing--link {
+    display: block;
+    width: 84%;
+    height: 54px;
+    line-height: 54px;
+    margin: 30px auto 0 auto;
+    border: none;
+    border-radius: 4px;
+    color: $linkTextColor;
+    background: $linkColor;
+    font-weight: $fontWeightButton;
+    text-decoration: none;
+}
+.view-controls__readressing--link-text::after {
+    content: "";
+    display: inline-block;
+    width: 80px;
+    height: 1em;
+    background: url('../images/paypal.svg') 50% 50% no-repeat;
+    vertical-align: middle;
+}
+
+/*Atomic classes for fonts*/
+
+.font-18 {
+    font-size: $font-18;
+}
+.font-20 {
+    font-size: $font-20;
+}
+.font-24 {
+    font-size: $font-24;
+}
+.font-48 {
+    font-size: $font-48;
+}
+.font-60 {
+    font-size: $font-60;
+}
+
+/*Temporary styles*/
