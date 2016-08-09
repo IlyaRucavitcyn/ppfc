@@ -1,0 +1,47 @@
+<section class="<%= container %>">
+    <article class="<%= mainForm %>">
+        <div class="<%= payment %>">
+            <div class="<%= amount %>">
+                <p class="<%= phrase %>">To pay</p>
+                <p class="<%= summ %>">&#36;649</p>
+            </div>
+            <button class="<%= cancel %>">
+                <p class="<%= text %> font-18 no-margin left-text">Cancel your payment</p>
+            </button>
+        </div>
+        <div class="<%= controls %>">
+            <div class="<%= title %>">
+                <div class="<%= info %>">
+                    <h1 class="<%= heading %> font-48">Payments</h1>
+                    <h3 class="font-24 <%= subheading %>">Pay with credit card</h3>
+                </div>
+                <div class="<%= logo %>">
+                    <img class="<%= image %>" src="./images/visa.svg" alt="Visa" width="85" height="27" />
+                </div>
+            </div>
+            <form class="<%= form %>">
+                <div class="<%= card %>">
+                    <label class="<%= label %>" for="card">Credit card number</label>
+                    <input class="<%= input %>" type="text" id="card" name="card_number" value="">
+                </div>
+                <div class="<%= date %>">
+                    <label class="<%= label %>" for="expiration">Expiration</label>
+                    <input class="<%= input %>" type="text" id="expiration" name="card_number" value="">
+                    <input class="<%= input %>" type="text" id="expiration" name="card_number" value="">
+                </div>
+                <div class="<%= cvc %>">
+                    <label class="<%= label %>" for="cvc-cw">CVC/CW</label>
+                    <input class="<%= input %>" type="text" id="cvc-cw" name="card_number" value="">
+                    <p class="<%= text %>">3 or 4 digits code</p>
+                </div>
+                <input class="<%= submit %>" type="submit" name="name" value="Pay Now">
+            </form>
+            <div class="<%= readressing %>">
+                <p class="<%= text %> centered-text">or select other payment method</p>
+                <a class="<%= link %> centered-text" href="#">
+                    <span class="<%= text %>">Pay with</span>
+                </a>
+            </div>
+        </div>
+    </article>
+</section>

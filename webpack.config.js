@@ -1,6 +1,8 @@
-var precss       = require('precss'),
+var precss = require('precss'),
     autoprefixer = require('autoprefixer'),
-    spyImport = require('postcss-import');
+    spyImport = require('postcss-import'),
+    HtmlWebpackPlugin = require('html-webpack-plugin'),
+    webpack = require('webpack');
 
 
 module.exports = {
@@ -8,7 +10,7 @@ module.exports = {
     output: {
         path: __dirname + '/js',
         filename: 'bundle.js',
-        publicPath: '/js'
+        publicPath: ''
     },
     resolve: {
         modulesDirectories: ['node_modules']
@@ -16,24 +18,38 @@ module.exports = {
     module: {
         loaders: [{
             test: /\.css$/,
-            loader: 'style-loader!css-loader!postcss-loader'
-        },{
+            loader: 'style-loader!css-loader?modules!postcss-loader'
+        }, {
             test: /\.(jpe?g|png|gif|svg)$/i,
             loaders: [
                 'file?hash=sha512&digest=hex&name=[hash].[ext]',
                 'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false'
             ]
+        }, {
+            test: /\.ejs$/,
+            loader: 'ejs-loader'
         }]
     },
-    postcss: function (webpack) {
+    postcss: function(webpack) {
         return [spyImport({
             addDependencyTo: webpack
-        }),precss, autoprefixer];
+        }), precss, autoprefixer];
     },
     devServer: {
         host: 'localhost',
         port: 3000
     },
+    devtool: "cheap-inline-module-source-map",
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: 'index.ejs',
+            inject: 'body',
+        }),
 
-    devtool: "cheap-inline-module-source-map"
+        new webpack.ProvidePlugin({
+            $: "./jquery-3.1.0.min.js",
+            jQuery: "./jquery-3.1.0.min.js",
+            "window.jQuery": "./jquery-3.1.0.min.js"
+        })
+    ]
 };
