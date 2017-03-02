@@ -1,7 +1,9 @@
 /*TODO delete all temporary styles*/
 
-@import "./colors.css";
+@import  "./colors.css";
 @import "./typo.css";
+@import "./normalize.css";
+
 * {
     box-sizing: border-box;
 }
