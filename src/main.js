@@ -1,2 +1,2 @@
-require('./css/base.css');
-require('./index.html');
+import './css/base.css';
+import './index.html';
