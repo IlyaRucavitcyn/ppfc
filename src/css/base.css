@@ -80,11 +80,7 @@ body {
     flex-flow: column;
     padding: 0px 40px;
 }
-.view-controls__title {
-    flex-grow: 1;
-    display: flex;
-    /*Temporary styles*/
-}
+
 .view-controls__title__info {
     flex-basis: 50%;
 }
@@ -92,25 +88,27 @@ body {
     margin: 15px 0;
     font-weight: $fontWeightBase;
     color: $headingColor;
+    flex-basis: 100%;
+}
+.view-controls__title__info--card-type{
+  flex-basis: 100%;
+  display: flex;
 }
 .view-controls__title__info--subheading {
     font-weight: $fontWeightBase;
     margin-top: 10px;
+    flex-basis: 50%;
 }
 .view-controls__title__logo {
     flex-basis: 50%;
+    margin-top: 15px;
 }
 .view-controls__title__logo--image {
     display: block;
-    margin: 93px 5px auto auto;
-    margin-top: 93px;
     margin-left: auto;
 }
 .view-controls__form {
-    height: 420px;
     border-bottom: 1px solid $borderColor;
-    /*Temporary styles*/
-    /*background-color: $t4;*/
 }
 .view-controls__form__item {
     margin-bottom: 25px;
@@ -150,7 +148,7 @@ body {
     display: block;
     width: 84%;
     height: 54px;
-    margin: 30px auto 0 auto;
+    margin: 30px auto 50px auto;
     border: none;
     border-radius: 4px;
     color: $textAmountColor;

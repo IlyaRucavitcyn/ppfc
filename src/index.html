@@ -5,58 +5,62 @@
     <meta charset="utf-8">
     <title>Webpack starting</title>
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic&subset=cyrillic-ext,latin-ext' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="main.css">
-</head>
+    <link rel="stylesheet" href="main.css"> </head>
 
 <body>
     <section class="container">
+        <!-- PaymentDashComponent -->
         <article class="main-form">
             <div class="view-total-payment">
+                <!-- ViewTotalPaymentAmount -->
                 <div class="view-total-payment__amount centered-text">
                     <p class="font-20 no-margin">To pay</p>
                     <p class="view-total-payment__amount--summ font-60">&#36;649</p>
                 </div>
-                <button class="view-total-payment__cancel">
+                <!-- ViewTotalPaymentAmount END-->
+                <!-- CancellPayment --><button class="view-total-payment__cancel">
                     <p class="view-total-payment__cancel--text font-18 no-margin left-text">Cancel your payment</p>
                 </button>
+                <!-- CancellPayment END-->
             </div>
+            <!-- PaymentSection -->
             <div class="view-controls">
+                <!-- TODO change the markup -->
                 <div class="view-controls__title">
-                    <div class="view-controls__title__info">
-                        <h1 class="view-controls__title__info--heading font-48">Payments</h1>
-                        <h3 class="font-24 view-controls__title__info--subheading">Pay with credit card</h3>
-                    </div>
-                    <div class="view-controls__title__logo">
-                        <img class="view-controls__title__logo--image" src="./images/visa.svg" alt="Visa" width="85" height="27" />
-                    </div>
-                </div>
+                    <h1 class="view-controls__title__info--heading font-48">Payments</h1> </div>
+                <!-- TODO change the markup END-->
                 <form class="view-controls__form">
+                    <div class="view-controls__title__info--card-type">
+                        <h3 class="font-24 view-controls__title__info--subheading">Pay with credit card</h3>
+                        <div class="view-controls__title__logo"> <img class="view-controls__title__logo--image" src="./images/visa.svg" alt="Visa" width="85" height="27" /> </div>
+                    </div>
                     <div class="view-controls__form__item view-controls__form--card">
-                        <label class="view-controls__form__item--label" for="card">Credit card number</label>
-                        <input class="view-controls__form__item--input" type="text" id="card" name="card_number" value="">
+                      <label class="view-controls__form__item--label" for="card">Credit card number</label>
+                      <input class="view-controls__form__item--input" type="text" id="card" name="card_number" value="">
                     </div>
                     <div class="view-controls__form__item view-controls__form--date">
-                        <label class="view-controls__form__item--label" for="expiration">Expiration</label>
-                        <input class="view-controls__form__item--input view-controls__form__item__date--input" type="text" id="expiration" name="card_number" value="">
-                        <input class="view-controls__form__item--input view-controls__form__item__date--input" type="text" id="expiration" name="card_number" value="">
+                      <label class="view-controls__form__item--label" for="expiration">Expiration</label>
+                      <input class="view-controls__form__item--input view-controls__form__item__date--input" type="text" id="expiration" name="card_number" value="">
+                      <input class="view-controls__form__item--input view-controls__form__item__date--input" type="text" id="expiration" name="card_number" value="">
                     </div>
                     <div class="view-controls__form__item view-controls__form--cvc">
-                        <label class="view-controls__form__item--label" for="cvc-cw">CVC/CW</label>
-                        <input class="view-controls__form__item--input view-controls__form__item__cvc--input" type="text" id="cvc-cw" name="card_number" value="">
-                        <p class="view-controls__form__item__cvc--text left-text">3 or 4 digits code</p>
+                      <label class="view-controls__form__item--label" for="cvc-cw">CVC/CW</label>
+                      <input class="view-controls__form__item--input view-controls__form__item__cvc--input" type="text" id="cvc-cw" name="card_number" value="">
+                      <p class="view-controls__form__item__cvc--text left-text">3 or 4 digits code</p>
                     </div>
                     <input class="view-controls__form__item--submit" type="submit" name="name" value="Pay Now">
-                </form>
+                  </form>
+
                 <div class="view-controls__readressing">
                     <p class="view-controls__readressing--text centered-text">or select other payment method</p>
-                    <a class="view-controls__readressing--link centered-text" href="#">
-                        <span class="view-controls__readressing--link-text">Pay with</span>
-                    </a>
+                    <a class="view-controls__readressing--link centered-text" href="#"> <span class="view-controls__readressing--link-text">Pay with</span> </a>
                 </div>
             </div>
+            <!-- PaymentSection END-->
         </article>
+        <!-- PaymentDashComponent END-->
     </section>
-    <script src="bundle.js"></script>
+    <script src="main.js"></script>
 </body>
 
 </html>
