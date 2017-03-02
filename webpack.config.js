@@ -18,7 +18,7 @@ module.exports = {
     module: {
         loaders: [{
             test: /\.css$/,
-            loader: 'style-loader!css-loader?modules!postcss-loader'
+            loader: 'style-loader!css-loader!postcss-loader'
         }, {
             test: /\.(jpe?g|png|gif|svg)$/i,
             loaders: [
