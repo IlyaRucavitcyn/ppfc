@@ -1,0 +1,30 @@
+@import "../../css/colors.css";
+@import "../../css/typo.css";
+@import "../../css/normalize.css";
+
+
+.form {
+    border-bottom: 1px solid $borderColor;
+}
+
+.title{
+  flex-basis: 100%;
+  display: flex;
+}
+
+.subheading {
+    font-weight: $fontWeightBase;
+    margin-top: 10px;
+    flex-basis: 50%;
+    font-size:24px;
+}
+
+.logo {
+    flex-basis: 50%;
+    margin-top: 15px;
+}
+
+.image {
+    display: block;
+    margin-left: auto;
+}

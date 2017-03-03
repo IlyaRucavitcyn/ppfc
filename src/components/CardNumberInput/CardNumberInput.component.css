@@ -1,0 +1,30 @@
+@import "../../css/colors.css";
+@import "../../css/typo.css";
+@import "../../css/normalize.css";
+
+.item {
+    margin-bottom: 25px;
+}
+
+.label {
+    width: 100%;
+    display: block;
+    font-weight: $fontWeightBase;
+}
+
+.input {
+    width: 100%;
+    height: 52px;
+    border-radius: 4px;
+    margin: 5px 0;
+    padding: 0 10px;
+    border: 1px solid $borderColor;
+}
+
+.text{
+  width: 45%;
+}
+
+.left{
+  text-align: left;
+}

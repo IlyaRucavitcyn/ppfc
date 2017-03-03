@@ -1,0 +1,13 @@
+@import "../../css/colors.css";
+@import "../../css/typo.css";
+@import "../../css/normalize.css";
+
+.readressing {
+    height: 200px;
+}
+.text {
+    margin-top: 30px;
+}
+.centered{
+  text-align: center;
+}

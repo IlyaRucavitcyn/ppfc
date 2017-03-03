@@ -157,8 +157,6 @@ body {
 }
 .view-controls__readressing {
     height: 200px;
-    /*Temporary styles*/
-    /*background-color: $t5;*/
 }
 .view-controls__readressing--text {
     margin-top: 30px;
@@ -202,5 +200,7 @@ body {
 .font-60 {
     font-size: $font-60;
 }
-
+.bordered-input{
+  padding:0 10px;
+}
 /*Temporary styles*/

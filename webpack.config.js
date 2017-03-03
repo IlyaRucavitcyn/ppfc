@@ -16,7 +16,7 @@ const path = require('path'),
 module.exports = {
     context: path.join(__dirname, 'src'),
     entry: {
-      main: './main'      
+      main: './main'
     },
     output: {
         path: path.join(__dirname, 'dist'),
@@ -32,14 +32,14 @@ module.exports = {
                 test: /\.js$/,
                 loader: 'babel-loader',
                 query: {
-                    presets: ['es2015']
+                    presets: ['es2015','react']
                 }
             },
             {
                 test: /\.css$/,
                 loader: extractCSS.extract({
                     fallbackLoader: 'style-loader',
-                    loader: 'css-loader!postcss-loader'
+                    loader: 'css-loader?modules!postcss-loader'
                 })
             },
             {
