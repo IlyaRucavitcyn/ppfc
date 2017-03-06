@@ -1,0 +1,30 @@
+@import "../../css/colors.css";
+@import "../../css/typo.css";
+@import "../../css/normalize.css";
+
+.cancel {
+    display: block;
+    height: 52px;
+    color: $textAmountColor;
+    background-color: $headingColor;
+    border: none;
+    border-bottom-left-radius: 9px;
+}
+
+.text {
+    font-weight: $fontWeightButton;
+    font-size: $font-18;
+    margin: 0 0 0 25px;
+}
+
+.text::before {
+    content: "";
+    display: inline-block;
+    width: 20px;
+    height: 1em;
+    background: url('../../images/arrow-left.svg') 50% 50% no-repeat;
+    background-size: 80%;
+    vertical-align: middle;
+    margin: 0;
+    text-align: left;
+}

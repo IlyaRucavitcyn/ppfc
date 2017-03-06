@@ -12,4 +12,5 @@
     color: $textAmountColor;
     background: $backgroundPageColor;
     font-weight: $fontWeightButton;
+    cursor: pointer;
 }

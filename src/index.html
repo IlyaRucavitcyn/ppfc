@@ -8,59 +8,7 @@
     <link rel="stylesheet" href="main.css"> </head>
 
 <body>
-    <section class="container">
-        <!-- PaymentDashComponent -->
-        <article class="main-form">
-            <div class="view-total-payment">
-                <!-- ViewTotalPaymentAmount -->
-                <div class="view-total-payment__amount centered-text">
-                    <p class="font-20 no-margin">To pay</p>
-                    <p class="view-total-payment__amount--summ font-60">&#36;649</p>
-                </div>
-                <!-- ViewTotalPaymentAmount END-->
-                <!-- CancellPayment --><button class="view-total-payment__cancel">
-                    <p class="view-total-payment__cancel--text font-18 no-margin left-text">Cancel your payment</p>
-                </button>
-                <!-- CancellPayment END-->
-            </div>
-            <!-- PaymentSection -->
-            <div class="view-controls">
-                <!-- TODO change the markup -->
-                <div class="view-controls__title">
-                    <h1 class="view-controls__title__info--heading font-48">Payments</h1> </div>
-                <!-- TODO change the markup END-->
-                <form class="view-controls__form">
-                    <div class="view-controls__title__info--card-type">
-                        <h3 class="font-24 view-controls__title__info--subheading">Pay with credit card</h3>
-                        <div class="view-controls__title__logo"> <img class="view-controls__title__logo--image" src="./images/visa.svg" alt="Visa" width="85" height="27" /> </div>
-                    </div>
-                    <div class="view-controls__form__item view-controls__form--card">
-                      <label class="view-controls__form__item--label" for="card">Credit card number</label>
-                      <input class="view-controls__form__item--input bordered-input" type="text" id="card" name="card_number" value="">
-                    </div>
-                    <div class="view-controls__form__item view-controls__form--date">
-                      <label class="view-controls__form__item--label" for="expiration">Expiration</label>
-                      <input class="view-controls__form__item--input view-controls__form__item__date--input bordered-input" type="text" id="expiration" name="card_number" value="">
-                      <input class="view-controls__form__item--input view-controls__form__item__date--input bordered-input" type="text" id="expiration" name="card_number" value="">
-                    </div>
-                    <div class="view-controls__form__item view-controls__form--cvc">
-                      <label class="view-controls__form__item--label" for="cvc-cw">CVC/CW</label>
-                      <input class="view-controls__form__item--input view-controls__form__item__cvc--input bordered-input" type="text" id="cvc-cw" name="card_number" value="">
-                      <p class="view-controls__form__item__cvc--text left-text">3 or 4 digits code</p>
-                    </div>
-                    <input class="view-controls__form__item--submit" type="submit" name="name" value="Pay Now">
-                  </form>
-                  
-                <div class="view-controls__readressing">
-                    <p class="view-controls__readressing--text centered-text">or select other payment method</p>
-                    <a class="view-controls__readressing--link centered-text" href="#"> <span class="view-controls__readressing--link-text">Pay with</span> </a>
-                </div>
-            </div>
-            <!-- PaymentSection END-->
-        </article>
-        <!-- PaymentDashComponent END-->
-    </section>
-    <div id="root"></div>
+    <div id="root" style="height:100%"></div>
     <script src="main.js"></script>
 </body>
 

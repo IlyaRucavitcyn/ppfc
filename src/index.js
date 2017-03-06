@@ -1,8 +1,8 @@
 import React from 'react';
 import {render} from 'react-dom';
-import Payments from './components/Payments/Payments.component';
+import PaymentDash from './components/PaymentDash/PaymentDash.component';
 
 render(
-  <Payments />,
+  <PaymentDash />,
   document.getElementById('root')
 );
