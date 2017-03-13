@@ -3,9 +3,12 @@ import {
 } from "../constants"
 
 const validateExpiration = (date) => {
-    console.log("validate", date);
-    let currentDate = new Date();
-    return (date.year >= currentDate.getFullYear() && date.month >= (currentDate.getMonth() + 1));
+    let currentDate = new Date(),
+        currentYear = currentDate.getFullYear();
+    if (date.year = currentYear) {
+        return (date.month >= (currentDate.getMonth() + 1));
+    };
+    return date.year > currentYear;
 }
 
 const expirationYear = (state = new Date().getFullYear(), action) => {
@@ -41,8 +44,8 @@ const expiration = (state = {
                     month: state.date.month
                 },
                 valid: validateExpiration({
-                  year:action.year,
-                  month:state.date.month
+                    year: action.year,
+                    month: state.date.month
                 })
             });
         case actionTypes.SET_EXPIRATION_MONTH:
