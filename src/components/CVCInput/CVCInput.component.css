@@ -1,7 +1,6 @@
 @import "../../css/colors.css";
 @import "../../css/typo.css";
 @import "../../css/normalize.css";
-
 .item {
     margin-bottom: 25px;
 }
@@ -18,6 +17,11 @@
     font-weight: $fontWeightBase;
 }
 
+.labelInvalid {
+    color: rgba(234, 9, 51, 0.75);
+    font-weight: 600;
+}
+
 .input {
     width: 45%;
     height: 52px;
@@ -27,10 +31,15 @@
     border: 1px solid $borderColor;
 }
 
-.text{
-  width: 45%;
+.invalid {
+    background-color: rgba(222, 188, 194, 0.21);
+    border-color: rgba(234, 9, 51, 0.75);
 }
 
-.left{
-  text-align: left;
+.text {
+    width: 45%;
+}
+
+.left {
+    text-align: left;
 }

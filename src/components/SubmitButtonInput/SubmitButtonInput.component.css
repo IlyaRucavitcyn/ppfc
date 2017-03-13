@@ -14,3 +14,7 @@
     font-weight: $fontWeightButton;
     cursor: pointer;
 }
+
+.submit:disabled{
+  background:#b6cae2;
+}
