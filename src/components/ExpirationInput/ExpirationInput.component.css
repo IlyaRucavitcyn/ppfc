@@ -17,7 +17,10 @@
     display: block;
     font-weight: $fontWeightBase;
 }
-
+.labelInvalid {
+    color: rgba(234, 9, 51, 0.75);
+    font-weight: 600;
+}
 .input {
     width: 45%;
     height: 52px;
@@ -25,4 +28,8 @@
     margin: 5px 0;
     padding: 0 10px;
     border: 1px solid $borderColor;
+}
+.invalid {
+    background-color: rgba(222, 188, 194, 0.21);
+    border-color: rgba(234, 9, 51, 0.75);
 }

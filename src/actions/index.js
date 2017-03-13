@@ -19,7 +19,7 @@ export const setExpirationMonth = (month) => {
 export const setExpirationYear = (year) => {
     return {
         type: actionTypes.SET_EXPIRATION_YEAR,
-        month
+        year
     }
 }
 

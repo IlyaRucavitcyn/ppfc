@@ -16,7 +16,7 @@ class SubmitButtonInput extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        valid: state.cvc.valid && state.cardNumber.valid
+        valid: state.cvc.valid && state.cardNumber.valid && state.expiration.valid
     }
 }
 
