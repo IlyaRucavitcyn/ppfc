@@ -5,8 +5,8 @@
   "main": "data.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "node_modules/.bin/webpack",
-    "start": "node_modules/.bin/webpack-dev-server --inline --open"
+    "build": "webpack",
+    "start": "webpack-dev-server --inline --open"
   },
   "repository": {
     "type": "git",
@@ -39,6 +39,8 @@
   },
   "dependencies": {
     "react": "^15.4.2",
-    "react-dom": "^15.4.2"
+    "react-dom": "^15.4.2",
+    "react-redux": "^5.0.3",
+    "redux": "^3.6.0"
   }
 }
