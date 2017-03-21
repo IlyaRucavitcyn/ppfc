@@ -19,7 +19,6 @@
 }
 .labelInvalid {
     color: rgba(234, 9, 51, 0.75);
-    font-weight: 600;
 }
 .input {
     width: 45%;

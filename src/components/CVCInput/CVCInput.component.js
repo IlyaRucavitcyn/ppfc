@@ -3,41 +3,38 @@ import { connect } from 'react-redux';
 import style from './CVCInput.component.css';
 import {setCvc} from "../../actions";
 import {placeholders} from "../../constants";
+import validation from "card-validator";
 
-class CVCInput extends Component{
+export default class CVCInput extends Component{
+  constructor(props){
+    super(props);
+    this.state = {
+      value:"",
+      valid:true
+    };
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+handleChange(event){
+  this.setState({
+    value:event.target.value,
+    valid:validation.cvv(event.target.value, 4).isValid || validation.cvv(event.target.value, 4).isPotentiallyValid
+  })
+}
+
   render(){
     return (
       <div className={`${style.item} ${style.cvc}`}>
-        <label className={`${style.label} ${(!this.props.valid) ? style.labelInvalid : ""}`} htmlFor="cvc-cw">CVC/CW</label>
-        <input className={`${style.input} ${(!this.props.valid) ? style.invalid : ""}`}
+        <label className={`${style.label} ${(this.state.valid) ? "" : style.labelInvalid }`} htmlFor="cvc-cw">CVC/CW</label>
+        <input className={`${style.input} ${(this.state.valid) ? "" : style.invalid }`}
           type="text"
           id="cvc-cw"
-          name="card_number"
+          name=""
           placeholder = {placeholders.CVC}
-          value={this.props.cvc}
-          onChange = {(e) => {e.preventDefault(); this.props.onChange(e)}}/>
+          value={this.state.value}
+          onChange = {this.handleChange}/>
         <p className={`${style.text} ${style.left}`}>3 or 4 digits code</p>
       </div>
     );
   }
 }
-
-const mapStateToProps = (state) => {
-  return {
-    cvc: state.cvc.value,
-    valid: state.cvc.valid
-  }
-}
-
-const mapDispatchToProps = (dispatch, ownProps) => {
-  return {
-    onChange: (e) => {
-      dispatch(setCvc(e.target.value))
-    }
-  }
-}
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(CVCInput)
