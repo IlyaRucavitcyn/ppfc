@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import style from './CVCInput.component.css';
 import {setCvc} from "../../actions";
-import {placeholders} from "../../constants";
+import {placeholders, cardTypesId, cardTypesConst} from "../../constants";
 import validation from "card-validator";
 
 export default class CVCInput extends Component {
@@ -17,9 +17,10 @@ export default class CVCInput extends Component {
 
     handleChange(event) {
 
+        const maxLength = (!!this.props.cardType && cardTypesId[this.props.cardType] === cardTypesConst["AMERICAN_EXPRESS"]) ? 4 : 3;
         const validateCvc = (cvc) => {
-            return validation.cvv(cvc, 4).isValid || validation.cvv(cvc, 4).isPotentiallyValid
-        }
+            return validation.cvv(cvc, maxLength).isValid || validation.cvv(cvc, maxLength).isPotentiallyValid
+        };
 
         this.setState({
             value: event.target.value,

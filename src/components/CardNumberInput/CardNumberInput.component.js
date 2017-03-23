@@ -11,6 +11,7 @@ export default class CardNumberInput extends Component {
         super(props);
         this.state = {
             value: "",
+            type: null,
             valid: true
         }
         this.setValidityOfNumber = this.setValidityOfNumber.bind(this);
@@ -24,8 +25,10 @@ export default class CardNumberInput extends Component {
     handleChange(event) {
         let resultState = {
             value: event.target.value,
+            type: validation.number(event.target.value).card ? validation.number(event.target.value).card.type : null,
             valid: this.setValidityOfNumber(event.target.value)
         };
+        console.log(resultState);
         this.setState(resultState);
         this.props.numberChanged(resultState);
     }
