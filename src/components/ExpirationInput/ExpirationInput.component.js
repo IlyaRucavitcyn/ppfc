@@ -8,31 +8,59 @@ export default class ExpirationInput extends Component {
     constructor(props) {
         super(props);
         this.currentDate = new Date();
+        this.currentMonth = this.currentDate.getMonth() + 1;
+        this.currentYear = this.currentDate.getFullYear();
         this.state = {
-            month: this.currentDate.getMonth() + 1,
+            month: this.currentMonth,
             validMonth: true,
-            year: this.currentDate.getFullYear(),
+            year: this.currentYear,
             validYear: true
         }
+
         this.createMonthList = this.createMonthList.bind(this);
         this.createYearList = this.createYearList.bind(this);
         this.handleMonthChange = this.handleMonthChange.bind(this);
         this.handleYearChange = this.handleYearChange.bind(this);
     }
 
+    componentDidMount() {
+      this.props.initialDate({
+        month:this.currentMonth,
+        year:this.currentYear
+      })
+    }
+
     handleMonthChange(event) {
+
+        const monthValidate = (month) => {
+            return validation.expirationMonth(month).isValid && validation.expirationMonth(month).isValidForThisYear
+        }
+
         this.setState({
             month: event.target.value,
-            validMonth: validation.expirationMonth(event.target.value).isValid  &&
-                        validation.expirationMonth(event.target.value).isValidForThisYear
-        })
+            validMonth: monthValidate(event.target.value)
+        });
+
+        this.props.expirationChanged({
+          month: event.target.value,
+          valid: monthValidate(event.target.value) && this.state.validYear
+        });
     }
 
     handleYearChange(event) {
+
+      const yearValidate = (year) => {
+          return validation.expirationYear(event.target.value).isCurrentYear || validation.expirationYear(event.target.value).isValid
+      }
+
         this.setState({
             year: event.target.value,
-            validYear: validation.expirationYear(event.target.value).isCurrentYear ||
-                       validation.expirationYear(event.target.value).isValid
+            validYear: yearValidate(event.target.value)
+        })
+
+        this.props.expirationChanged({
+          year: event.target.value,
+          valid: yearValidate(event.target.value) && this.state.validMonth
         })
     }
 
@@ -68,18 +96,17 @@ export default class ExpirationInput extends Component {
     render() {
         return (
             <div className={`${style.item} ${style.date}`}>
-                <label className={`${style.label} ${ (this.state.validMonth) ? "" : style.labelInvalid }`}
-                       htmlFor="expiration">Expiration</label>
-                     <select className={`${style.input} ${ (this.state.validMonth) ? "" : style.invalid }`}
-                          id="" name=""
-                          onChange={this.handleMonthChange}
-                          value={this.state.month}>
+                <label className={`${style.label} ${ (this.state.validMonth)
+                    ? ""
+                    : style.labelInvalid}`} htmlFor="expiration">Expiration</label>
+                <select className={`${style.input} ${ (this.state.validMonth)
+                    ? ""
+                    : style.invalid}`} name="" onChange={this.handleMonthChange} value={this.state.month}>
                     {this.createMonthList()}
                 </select>
-                <select className={`${style.input} ${ (this.state.validYear) ? "" : style.invalid }`}
-                        type="text" id="" name=""
-                        onChange={this.handleYearChange}
-                        value={this.state.year}>
+                <select className={`${style.input} ${ (this.state.validYear)
+                    ? ""
+                    : style.invalid}`} type="text" name="" onChange={this.handleYearChange} value={this.state.year}>
                     {this.createYearList()}
                 </select>
             </div>

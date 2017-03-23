@@ -9,17 +9,47 @@ export default class CreditCardForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            cardNumber: {},
-            expiration: {},
-            cvc: {},
+            cardNumber: {
+                valid: true
+            },
+            expiration: {
+                valid: true
+            },
+            cvc: {
+                valid: true
+            },
             valid: true
         }
 
+        this.setInitialDate = this.setInitialDate.bind(this);
         this.onCardNumberChanged = this.onCardNumberChanged.bind(this);
+        this.onExpirationInputChanged = this.onExpirationInputChanged.bind(this);
+        this.onCvcChanged = this.onCvcChanged.bind(this);
     };
 
+    setInitialDate(newState) {
+        this.setState({expiration: Object.assign({}, this.state.expiration, newState)});
+    }
+
     onCardNumberChanged(newState) {
-        this.setState({cardNumber: newState});
+        this.setState({
+            cardNumber: newState,
+            valid: this.state.expiration.valid && this.state.cvc.valid && newState.valid
+        });
+    }
+
+    onExpirationInputChanged(newState) {
+        this.setState({
+            expiration: Object.assign({}, this.state.expiration, newState),
+            valid: this.state.cardNumber.valid && this.state.cvc.valid && newState.valid
+        });
+    }
+
+    onCvcChanged(newState) {
+        this.setState({
+            cvc: newState,
+            valid: this.state.cardNumber.valid && this.state.expiration.valid && newState.valid
+        });
     }
 
     render() {
@@ -33,9 +63,11 @@ export default class CreditCardForm extends Component {
                         <img className={style.image} src="../../images/visa.svg" alt="Visa" width="85" height="27"/>
                     </div>
                 </div>
-                <CardNumberInput numberChanged={(e)=>{this.onCardNumberChanged(e)}}/>
-                <ExpirationInput/>
-                <CVCInput/>
+                <CardNumberInput numberChanged={(e) => {
+                    this.onCardNumberChanged(e)
+                }}/>
+                <ExpirationInput initialDate= {(e) =>{this.setInitialDate(e)}} expirationChanged= {(e)=>{this.onExpirationInputChanged(e)}}/>
+                <CVCInput cvcChanged= {(e)=>{this.onCvcChanged(e)}}/>
                 <SubmitButtonInput valid={!this.state.valid}/>
             </form>
         );
