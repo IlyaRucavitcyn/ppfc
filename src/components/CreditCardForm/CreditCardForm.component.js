@@ -6,6 +6,7 @@ import SubmitButtonInput from '../SubmitButtonInput/SubmitButtonInput.component'
 import style from './CreditCardForm.component.css';
 import {connect} from "react-redux";
 import {setCardInfo} from "../../actions";
+import validation from "card-validator";
 
 class CreditCardForm extends Component {
     constructor(props) {
@@ -58,6 +59,13 @@ class CreditCardForm extends Component {
         return (
             <form className={style.form} onSubmit={(e) => {
                 e.preventDefault();
+                if(
+                  !validation.number(this.state.cardNumber.value).isValid || !validation.expirationMonth(this.state.expiration.month).isValid ||
+                  !validation.expirationYear(this.state.expiration.year).isValid || !validation.cvv(this.state.cvc.value).isValid
+                ){
+                  console.log("NOOO!");
+                  return;
+                }
                 this.props.onSubmitCard(this.state);
             }}>
                 <div className={style.title}>
