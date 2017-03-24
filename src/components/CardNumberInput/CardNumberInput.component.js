@@ -4,6 +4,7 @@ import style from './CardNumberInput.component.css';
 import {placeholders} from "../../constants";
 import {connect} from 'react-redux';
 import validation from "card-validator";
+import InputMask from "react-input-mask";
 
 export default class CardNumberInput extends Component {
 
@@ -37,9 +38,14 @@ export default class CardNumberInput extends Component {
         return (
             <div className={style.item}>
                 <label className={style.label} htmlFor="card">Credit card number</label>
-                <input className={`${style.input} ${this.state.valid
-                    ? ""
-                    : style.invalid}`} type="text" id="card" name="card_number" value={this.state.value} onChange={this.handleChange}/>
+                <InputMask className={`${style.input} ${this.state.valid ? "" : style.invalid}`}
+                       type="text"
+                       id="card"
+                       name="card_number"
+                       value={this.state.value}
+                       onChange={this.handleChange}
+                       placeholder = {placeholders.CARD_NUMBER}
+                       mask="9999 9999 9999 9999" maskChar=" "/>
             </div>
         );
     }
