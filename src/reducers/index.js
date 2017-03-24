@@ -1,14 +1,10 @@
 import {combineReducers} from 'redux';
 import amountCreate from "./amount";
-import cardNumber from "./cardNumber";
-import cvcNumber from "./cvc";
-import expiration from "./expiration";
+import submitPayment from "./submitPayment"
 
 const paymentForm = combineReducers({
   amount:amountCreate,
-  cardNumber:cardNumber,
-  cvc:cvcNumber,
-  expiration:expiration
+  cards:submitPayment
 });
 
 export default paymentForm;

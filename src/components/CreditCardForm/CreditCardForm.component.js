@@ -4,8 +4,10 @@ import CVCInput from '../CVCInput/CVCInput.component';
 import ExpirationInput from '../ExpirationInput/ExpirationInput.component';
 import SubmitButtonInput from '../SubmitButtonInput/SubmitButtonInput.component';
 import style from './CreditCardForm.component.css';
+import {connect} from "react-redux";
+import {setCardInfo} from "../../actions";
 
-export default class CreditCardForm extends Component {
+class CreditCardForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -56,6 +58,7 @@ export default class CreditCardForm extends Component {
         return (
             <form className={style.form} onSubmit={(e) => {
                 e.preventDefault();
+                this.props.onSubmitCard(this.state);
             }}>
                 <div className={style.title}>
                     <h3 className={style.subheading}>Pay with credit card</h3>
@@ -73,3 +76,13 @@ export default class CreditCardForm extends Component {
         );
     }
 }
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onSubmitCard(newCard){
+      dispatch(setCardInfo(newCard));
+    }
+  }
+}
+
+export default connect(null,mapDispatchToProps)(CreditCardForm)
