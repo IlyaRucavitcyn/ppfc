@@ -4,12 +4,4 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
-constructor	D:\dev\PPFC\src\components\CreditCardForm\CreditCardForm.component.js	/^    constructor(props) {$/;"	function	line:12
-state.cardNumber	D:\dev\PPFC\src\components\CreditCardForm\CreditCardForm.component.js	/^            cardNumber: {$/;"	property	line:15
-setInitialDate	D:\dev\PPFC\src\components\CreditCardForm\CreditCardForm.component.js	/^    setInitialDate(newState) {$/;"	function	line:34
-onCardNumberChanged	D:\dev\PPFC\src\components\CreditCardForm\CreditCardForm.component.js	/^    onCardNumberChanged(newState) {$/;"	function	line:38
-onExpirationInputChanged	D:\dev\PPFC\src\components\CreditCardForm\CreditCardForm.component.js	/^    onExpirationInputChanged(newState) {$/;"	function	line:45
-onCvcChanged	D:\dev\PPFC\src\components\CreditCardForm\CreditCardForm.component.js	/^    onCvcChanged(newState) {$/;"	function	line:52
-isFormValidToSubmit	D:\dev\PPFC\src\components\CreditCardForm\CreditCardForm.component.js	/^    isFormValidToSubmit(number,month,year,cvc){$/;"	function	line:59
-render	D:\dev\PPFC\src\components\CreditCardForm\CreditCardForm.component.js	/^    render() {$/;"	function	line:64
-onSubmitCard	D:\dev\PPFC\src\components\CreditCardForm\CreditCardForm.component.js	/^    onSubmitCard(newCard){$/;"	function	line:89
+render	D:\dev\PPFC\src\components\Payments\Payments.component.js	/^  render(){$/;"	function	line:9
