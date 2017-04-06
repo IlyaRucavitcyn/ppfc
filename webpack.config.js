@@ -64,6 +64,7 @@ module.exports = {
         port: 8080,
         contentBase: path.join(__dirname, 'src')
     },
+    devtool:'cheap-eval-source-map',
     plugins: [
         clean,
         extractCSS

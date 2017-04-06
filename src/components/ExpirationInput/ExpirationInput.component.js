@@ -8,8 +8,8 @@ export default class ExpirationInput extends Component {
     constructor(props) {
         super(props);
         this.currentDate = new Date();
-        this.currentMonth = this.currentDate.getMonth() + 1;
-        this.currentYear = this.currentDate.getFullYear();
+        this.currentMonth = `${this.currentDate.getMonth() + 1}`;
+        this.currentYear = `${this.currentDate.getFullYear()}`;
         this.state = {
             month: this.currentMonth,
             validMonth: true,
@@ -68,13 +68,13 @@ export default class ExpirationInput extends Component {
         let list = [],
             currentMonth = this.currentDate.getMonth() + 1,
             setMonthToTwoSymbols = (month) => {
-                return month < 10
+                return +month < 10
                     ? "0" + month
                     : month;
             };
 
         for (let i = 1; i <= 12; i++) {
-            let option = <option key={i} value={i}>{setMonthToTwoSymbols(i)}</option>;
+            let option = <option key={i} value={`${i}`}>{setMonthToTwoSymbols(i)}</option>;
             list.push(option);
         }
 
@@ -86,7 +86,7 @@ export default class ExpirationInput extends Component {
             currentYear = this.currentDate.getFullYear();
 
         for (let i = 0; i <= 6; i++) {
-            let option = <option key={i} value={currentYear + i}>{currentYear + i}</option>;
+            let option = <option key={i} value={`${currentYear + i}`}>{currentYear + i}</option>;
             list.push(option);
         }
 
@@ -101,12 +101,12 @@ export default class ExpirationInput extends Component {
                     : style.labelInvalid}`} htmlFor="expiration">Expiration</label>
                 <select className={`${style.input} ${ (this.state.validMonth)
                     ? ""
-                    : style.invalid}`} name="" onChange={this.handleMonthChange} value={this.state.month}>
+                    : style.invalid}`} type="text" name="" onChange={this.handleMonthChange} defaultValue={`${this.state.month}`}>
                     {this.createMonthList()}
                 </select>
                 <select className={`${style.input} ${ (this.state.validYear)
                     ? ""
-                    : style.invalid}`} type="text" name="" onChange={this.handleYearChange} value={this.state.year}>
+                    : style.invalid}`} type="text" name="" onChange={this.handleYearChange} defaultValue={`${this.state.year}`}>
                     {this.createYearList()}
                 </select>
             </div>

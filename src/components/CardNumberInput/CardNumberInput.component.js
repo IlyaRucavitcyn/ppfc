@@ -29,7 +29,6 @@ export default class CardNumberInput extends Component {
             type: validation.number(event.target.value).card ? validation.number(event.target.value).card.type : null,
             valid: this.setValidityOfNumber(event.target.value)
         };
-        console.log(resultState);
         this.setState(resultState);
         this.props.numberChanged(resultState);
     }
@@ -45,7 +44,7 @@ export default class CardNumberInput extends Component {
                        value={this.state.value}
                        onChange={this.handleChange}
                        placeholder = {placeholders.CARD_NUMBER}
-                       mask="9999 9999 9999 9999" maskChar=" "/>
+                       mask="9999 9999 9999 9999 999" maskChar=" "/>
             </div>
         );
     }

@@ -21,13 +21,14 @@ class CreditCardForm extends Component {
             cvc: {
                 valid: true
             },
-            valid: true
+            valid: false
         }
 
         this.setInitialDate = this.setInitialDate.bind(this);
         this.onCardNumberChanged = this.onCardNumberChanged.bind(this);
         this.onExpirationInputChanged = this.onExpirationInputChanged.bind(this);
         this.onCvcChanged = this.onCvcChanged.bind(this);
+        this.isFormValidToSubmit = this.isFormValidToSubmit.bind(this);
     };
 
     setInitialDate(newState) {
@@ -37,35 +38,33 @@ class CreditCardForm extends Component {
     onCardNumberChanged(newState) {
         this.setState({
             cardNumber: newState,
-            valid: this.state.expiration.valid && this.state.cvc.valid && newState.valid
+            valid:this.isFormValidToSubmit(newState.value, this.state.expiration.month, this.state.expiration.year, this.state.cvc.value)
         });
     }
 
     onExpirationInputChanged(newState) {
         this.setState({
             expiration: Object.assign({}, this.state.expiration, newState),
-            valid: this.state.cardNumber.valid && this.state.cvc.valid && newState.valid
+            valid:this.isFormValidToSubmit(this.state.cardNumber.value, newState.month||this.state.expiration.month, newState.year||this.state.expiration.year, this.state.cvc.value)
         });
     }
 
     onCvcChanged(newState) {
         this.setState({
             cvc: newState,
-            valid: this.state.cardNumber.valid && this.state.expiration.valid && newState.valid
+            valid:this.isFormValidToSubmit(this.state.cardNumber.value, this.state.expiration.month, this.state.expiration.year, newState.value)
         });
     }
+
+    isFormValidToSubmit(number,month,year,cvc){
+      return validation.number(number).isValid && validation.expirationMonth(month).isValid && validation.expirationMonth(month).isValidForThisYear
+             && validation.expirationYear(year).isValid && validation.cvv(cvc).isValid
+    };
 
     render() {
         return (
             <form className={style.form} onSubmit={(e) => {
                 e.preventDefault();
-                if(
-                  !validation.number(this.state.cardNumber.value).isValid || !validation.expirationMonth(this.state.expiration.month).isValid ||
-                  !validation.expirationYear(this.state.expiration.year).isValid || !validation.cvv(this.state.cvc.value).isValid
-                ){
-                  console.log("NOOO!");
-                  return;
-                }
                 this.props.onSubmitCard(this.state);
             }}>
                 <div className={style.title}>
@@ -74,7 +73,7 @@ class CreditCardForm extends Component {
                         <img className={style.image} src={"../../images/cards/" + (this.state.cardNumber.type ? this.state.cardNumber.type : "unknown-card")+".png"} alt="Visa" width="85"/>
                     </div>
                 </div>
-                <CardNumberInput numberChanged={(e) => {
+                <CardNumberInput onSubmitValidity = {false} numberChanged={(e) => {
                     this.onCardNumberChanged(e)
                 }}/>
                 <ExpirationInput initialDate= {(e) =>{this.setInitialDate(e)}} expirationChanged= {(e)=>{this.onExpirationInputChanged(e)}}/>
