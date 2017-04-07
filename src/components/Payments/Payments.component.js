@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import CreditCardForm from '../CreditCardForm/CreditCardForm.component';
+import CardsList from '../CardsList/CardsList.component';
 import OtherPayment from '../OtherPayment/OtherPayment.component';
 import RouterPayments from '../RouterPayments/RouterPayments.component';
 import {Router, Route, hashHistory, IndexRoute, useRouterHistory} from 'react-router';
@@ -23,7 +24,7 @@ class Payments extends Component {
                 </div>
                 <Router history={appHistory}>
                     <Route path="/" component={RouterPayments}>
-                        <IndexRoute component={OtherPayment}/>
+                        <IndexRoute component={CardsList}/>
                         <Route path="new" component={CreditCardForm}/>
                         <Route path="*" component={() => (
                             <div>Not found...</div>

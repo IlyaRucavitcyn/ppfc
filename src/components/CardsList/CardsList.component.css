@@ -1,0 +1,25 @@
+@import  "../../css/colors.css";
+@import "../../css/typo.css";
+@import "../../css/normalize.css";
+
+.link {
+    display: block;
+    width: 84%;
+    height: 54px;
+    line-height: 54px;
+    margin: 30px auto 0 auto;
+    border-radius: 4px;
+    color: $formTextColor;
+    background: $backgroundCardListColor;
+    font-weight: $fontWeightButton;
+    text-decoration: none;
+    padding: 0 15px
+}
+
+.content::after {
+    content: "";
+    display: inline-block;
+    width: 50px;
+    height: 1em;
+    vertical-align: middle;
+}
