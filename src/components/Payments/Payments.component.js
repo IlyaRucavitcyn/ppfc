@@ -9,10 +9,11 @@ import {createHashHistory} from 'history'
 import style from './Payments.component.css';
 
 class Payments extends Component {
-    componentWillMount() {
-        if (!this.props.cards.length) {
-            hashHistory.push('/new');
-        }
+    componentDidMount() {
+        // if (!this.props.cards.length) {
+        //     hashHistory.push('/new');
+        // }
+        
     }
 
     render() {
@@ -26,6 +27,7 @@ class Payments extends Component {
                     <Route path="/" component={RouterPayments}>
                         <IndexRoute component={CardsList}/>
                         <Route path="new" component={CreditCardForm}/>
+                        <Route path="new/:id" component={CreditCardForm}/>
                         <Route path="*" component={() => (
                             <div>Not found...</div>
                         )}/>

@@ -15,36 +15,63 @@ export default class CardNumberInput extends Component {
             type: null,
             valid: true
         }
-        this.setValidityOfNumber = this.setValidityOfNumber.bind(this);
-        this.handleChange = this.handleChange.bind(this);
+        this.setValidityOfNumber = this
+            .setValidityOfNumber
+            .bind(this);
+        this.handleChange = this
+            .handleChange
+            .bind(this);
+    }
+
+    componentWillMount() {
+        if (this.props.currentCardValue.value) {
+            this.setState(this.props.currentCardValue)
+        }
     }
 
     setValidityOfNumber(value) {
-        return validation.number(value).isValid || validation.number(value).isPotentiallyValid;
+        return validation
+            .number(value)
+            .isValid || validation
+            .number(value)
+            .isPotentiallyValid;
     }
 
     handleChange(event) {
         let resultState = {
             value: event.target.value,
-            type: validation.number(event.target.value).card ? validation.number(event.target.value).card.type : null,
+            type: validation
+                .number(event.target.value)
+                .card
+                ? validation
+                    .number(event.target.value)
+                    .card
+                    .type
+                : null,
             valid: this.setValidityOfNumber(event.target.value)
         };
         this.setState(resultState);
-        this.props.numberChanged(resultState);
+        this
+            .props
+            .numberChanged(resultState);
     }
 
     render() {
         return (
             <div className={style.item}>
                 <label className={style.label} htmlFor="card">Credit card number</label>
-                <InputMask className={`${style.input} ${this.state.valid ? "" : style.invalid}`}
-                       type="text"
-                       id="card"
-                       name="card_number"
-                       value={this.state.value}
-                       onChange={this.handleChange}
-                       placeholder = {placeholders.CARD_NUMBER}
-                       mask="9999 9999 9999 9999 999" maskChar=" "/>
+                <InputMask
+                    className={`${style.input} ${this.state.valid
+                    ? ""
+                    : style.invalid}`}
+                    type="text"
+                    id="card"
+                    name="card_number"
+                    value={this.state.value}
+                    onChange={this.handleChange}
+                    placeholder={placeholders.CARD_NUMBER}
+                    mask="9999 9999 9999 9999 999"
+                    maskChar=" "/>
             </div>
         );
     }
