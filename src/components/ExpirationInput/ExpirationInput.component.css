@@ -1,0 +1,34 @@
+@import "../../css/colors.css";
+@import "../../css/typo.css";
+@import "../../css/normalize.css";
+
+.item {
+    margin-bottom: 25px;
+}
+
+.date {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.label {
+    width: 100%;
+    display: block;
+    font-weight: $fontWeightBase;
+}
+.labelInvalid {
+    color: rgba(234, 9, 51, 0.75);
+}
+.input {
+    width: 45%;
+    height: 52px;
+    border-radius: 4px;
+    margin: 5px 0;
+    padding: 0 10px;
+    border: 1px solid $borderColor;
+}
+.invalid {
+    background-color: rgba(222, 188, 194, 0.21);
+    border-color: rgba(234, 9, 51, 0.75);
+}

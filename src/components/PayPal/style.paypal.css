@@ -1,0 +1,30 @@
+@import  "../../css/colors.css";
+@import "../../css/typo.css";
+@import "../../css/normalize.css";
+
+.link {
+    display: block;
+    width: 84%;
+    height: 54px;
+    line-height: 54px;
+    margin: 30px auto 0 auto;
+    border: none;
+    border-radius: 4px;
+    color: $linkTextColor;
+    background: $linkColor;
+    font-weight: $fontWeightButton;
+    text-decoration: none;
+}
+
+.content::after {
+    content: "";
+    display: inline-block;
+    width: 80px;
+    height: 1em;
+    background: url('../../images/paypal.svg') 50% 50% no-repeat;
+    vertical-align: middle;
+}
+
+.centered{
+  text-align: center;
+}

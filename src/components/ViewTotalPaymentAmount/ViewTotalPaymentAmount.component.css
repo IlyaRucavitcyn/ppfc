@@ -1,0 +1,28 @@
+@import "../../css/colors.css";
+@import "../../css/typo.css";
+@import "../../css/normalize.css";
+
+.payment {
+    width: 376px;
+    display: flex;
+    flex-flow: column;
+    color: $textAmountColor;
+    background: url('../../images/sidebarbg.png') no-repeat;
+}
+
+.amount {
+    flex-grow: 1;
+    border-top-left-radius: 9px;
+    padding: 277px 116px 330px 117px;
+    text-align: center;
+}
+
+.text{
+  margin:0;
+  font-size: $font-20;
+}
+
+.summ {
+    margin: 25px 0;
+    font-size: $font-60;
+}

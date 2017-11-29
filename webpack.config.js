@@ -1,55 +1,72 @@
-var precss = require('precss'),
-    autoprefixer = require('autoprefixer'),
-    spyImport = require('postcss-import'),
-    HtmlWebpackPlugin = require('html-webpack-plugin'),
-    webpack = require('webpack');
+'use strict';
 
+const path = require('path'),
+      CleanWebpackPlugin = require('clean-webpack-plugin'),
+      ExtractTextPlugin = require('extract-text-webpack-plugin'),
+      clean = new CleanWebpackPlugin(['dist'], {
+        verbose: false,
+        dry: false
+      }),
+      extractCSS = new ExtractTextPlugin({
+        filename: '[name].css',
+        allChunks: true
+      }),
+      webpack = require('webpack');
 
 module.exports = {
-    entry: ['./main.js'],
+    context: path.join(__dirname, 'src'),
+    entry: {
+      main: './main'
+    },
     output: {
-        path: __dirname + '/js',
-        filename: 'bundle.js',
-        publicPath: ''
+        path: path.join(__dirname, 'dist'),
+        publicPath: '',
+        filename: '[name].js'
     },
     resolve: {
-        modulesDirectories: ['node_modules']
+      extensions: ['*', '.js', '.css']
     },
     module: {
-        loaders: [{
-            test: /\.css$/,
-            loader: 'style-loader!css-loader?modules!postcss-loader'
-        }, {
-            test: /\.(jpe?g|png|gif|svg)$/i,
-            loaders: [
-                'file?hash=sha512&digest=hex&name=[hash].[ext]',
-                'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false'
-            ]
-        }, {
-            test: /\.ejs$/,
-            loader: 'ejs-loader'
-        }]
-    },
-    postcss: function(webpack) {
-        return [spyImport({
-            addDependencyTo: webpack
-        }), precss, autoprefixer];
+        loaders: [
+            {
+                test: /\.js$/,
+                loader: 'babel-loader',
+                query: {
+                    presets: ['es2015','react']
+                }
+            },
+            {
+                test: /\.css$/,
+                loader: extractCSS.extract({
+                    fallbackLoader: 'style-loader',
+                    loader: 'css-loader?modules!postcss-loader'
+                })
+            },
+            {
+                test: /\index.html$/,
+                loaders: [
+                  'file-loader?name=[name].[ext]',
+                  'extract-loader'
+                ]
+            },
+            {
+                test: /\.html$/,
+                loader: 'html-loader'
+            },
+            {
+              test: /\.(png|jpg|gif|svg)$/,
+              loader: 'file-loader?name=[path][name].[ext]?[hash]'
+            }
+        ]
     },
     devServer: {
         host: 'localhost',
-        port: 3000
+        port: 8080,
+        contentBase: path.join(__dirname, 'src')
     },
-    devtool: "cheap-inline-module-source-map",
+    devtool:'cheap-eval-source-map',
     plugins: [
-        new HtmlWebpackPlugin({
-            template: 'index.ejs',
-            inject: 'body',
-        }),
-
-        new webpack.ProvidePlugin({
-            $: "./jquery-3.1.0.min.js",
-            jQuery: "./jquery-3.1.0.min.js",
-            "window.jQuery": "./jquery-3.1.0.min.js"
-        })
+        clean,
+        extractCSS
     ]
-};
+}

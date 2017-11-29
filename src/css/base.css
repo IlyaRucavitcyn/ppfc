@@ -1,0 +1,23 @@
+/*TODO delete all temporary styles*/
+
+@import  "./colors.css";
+@import "./typo.css";
+@import "./normalize.css";
+
+* {
+    box-sizing: border-box;
+}
+html {
+    height: 100%;
+}
+body {
+    background-color: $backgroundPageColor;
+    height: 100%;
+    font: $fontWeightBase $font-18 "HelveticaNeue-Thin", "Helvetica Neue Thin", "Helvetica Neue", Helvetica, $mainFont, sans-serif;
+    color: $formTextColor;
+}
+
+#root{
+  height: 100%;
+}
+/*Temporary styles*/
